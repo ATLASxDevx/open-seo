@@ -1,8 +1,24 @@
-# OpenSEO
+<div align="center">
+
+# OpenSEO by ATLAS
+
+<a href="https://atlasmedya.net"><img src="https://img.shields.io/badge/ATLAS-atlasmedya.net-blue?style=for-the-badge&amp;logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyTDEgMjFoMjJMMTIgMnptMCw0bDcuNTMgMTNINS40N0wxMiA2eiIvPjwvc3ZnPg==" alt="ATLAS"></a>
+<a href="https://github.com/ATLASxDevx"><img src="https://img.shields.io/badge/GitHub-ATLASxDevx-181717?style=for-the-badge&amp;logo=github" alt="GitHub"></a>
+<a href="https://github.com/ATLASxDevx/open-seo/stargazers"><img src="https://img.shields.io/github/stars/ATLASxDevx/open-seo?style=for-the-badge&amp;color=yellow" alt="Stars"></a>
+<a href="https://github.com/ATLASxDevx/open-seo/issues"><img src="https://img.shields.io/github/issues/ATLASxDevx/open-seo?style=for-the-badge" alt="Issues"></a>
+<a href="https://github.com/ATLASxDevx/open-seo/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ATLASxDevx/open-seo?style=for-the-badge" alt="License"></a>
+
+**Built on top of [every-app/open-seo](https://github.com/every-app/open-seo)**
+
+Turkish localization, enhanced documentation
 
 OpenSEO is an SEO tool for _the people_. If tools like Semrush or Ahrefs are too expensive or bloated, OpenSEO is a pay-as-you-go alternative that you actually control.
 
 ![OpenSEO demo (placeholder)](https://github.com/user-attachments/assets/6a928771-66ff-486b-b131-a54a3943985f)
+
+</div>
+
+---
 
 ## Table of Contents
 
@@ -18,6 +34,7 @@ OpenSEO is an SEO tool for _the people_. If tools like Semrush or Ahrefs are too
 - [Local Development](#local-development)
 - [Contributing](#contributing)
 - [SEO API Cost Reference](#seo-api-cost-reference)
+- [Turkce Kurulum Rehberi](#turkce-kurulum-rehberi)
 
 ## Why Use This
 
@@ -44,17 +61,19 @@ Top priorities:
 - Rank tracking
 - AI content workflows
 
-If something important is missing, please join the [Discord](https://discord.gg/c9uGs3cFXr) or email me at ben@everyapp.dev and request it.
+If something important is missing, please join the [Discord](https://discord.gg/c9uGs3cFXr) or email ben@everyapp.dev and request it.
 
 ## Community
 
-Email me: ben@everyapp.dev
-Join Discord to chat: [Discord](https://discord.gg/c9uGs3cFXr)
+Original project maintainer: ben@everyapp.dev
+Discord: [Discord](https://discord.gg/c9uGs3cFXr)
 
 Follow along for updates:
 
 - [r/everyapp](https://www.reddit.com/r/everyapp/)
 - On X: https://x.com/bensenescu
+
+ATLAS fork maintainer: [ATLASxDevx on GitHub](https://github.com/ATLASxDevx) | [atlasmedya.net](https://atlasmedya.net)
 
 ## Pricing / Costs
 
@@ -232,7 +251,7 @@ If you want to contribute but are unsure where to start, open an issue and descr
 
 Use this section to estimate DataForSEO spend per request type. OpenSEO itself remains free; these are API usage costs only.
 
-As of February 26, 2026, DataForSEO’s public docs/pricing pages say:
+As of February 26, 2026, DataForSEO's public docs/pricing pages say:
 
 - New accounts include **$1 free credit** to test the API.
 - The minimum top-up/payment is **$50**.
@@ -280,3 +299,115 @@ That means you can try OpenSEO for free with the starter credit, then decide if/
 - 100 backlinks page searches at current defaults before opening extra tabs: about `$4.30`
 - 100 fully explored backlinks domain searches: about `$12.98`
 - 100 fully explored backlinks page searches: about `$8.61`
+
+---
+
+## Turkce Kurulum Rehberi
+
+> Bu bolum Turkce konusan kullanicilar icin hazirlanmistir.
+
+### OpenSEO Nedir?
+
+OpenSEO, Semrush veya Ahrefs gibi pahali SEO araclarinin acik kaynakli ve ucretsiz bir alternatifidir. Kendi sunucunuzda barindirabilir, kullandikca odersiniz.
+
+### Gereksinimler
+
+- **Node.js** 20 veya ustu
+- **pnpm** paket yoneticisi
+- **Docker** (opsiyonel, self-hosting icin onerilen)
+- **DataForSEO** hesabi ve API anahtari
+
+### Hizli Kurulum (Docker ile)
+
+1. Docker'i yukleyin: https://www.docker.com/products/docker-desktop/
+
+2. Projeyi klonlayin:
+
+```sh
+git clone https://github.com/ATLASxDevx/open-seo.git
+cd open-seo
+```
+
+3. Ortam degiskenlerini ayarlayin:
+
+```sh
+cp .env.example .env
+```
+
+4. `.env` dosyasini acin ve `DATAFORSEO_API_KEY` degerini girin. API anahtarinizi su sekilde olusturabilirsiniz:
+
+```sh
+printf '%s' 'KULLANICI_ADINIZ:SIFRENIZ' | base64
+```
+
+5. Docker ile basatin:
+
+```sh
+docker compose up -d
+```
+
+6. Tarayicinizda `http://localhost:3001` adresine gidin.
+
+### Hizli Kurulum (Yerel Gelistirme)
+
+1. Projeyi klonlayin:
+
+```sh
+git clone https://github.com/ATLASxDevx/open-seo.git
+cd open-seo
+```
+
+2. Bagimliliklari yukleyin:
+
+```sh
+pnpm install
+```
+
+3. Veritabanini olusturun:
+
+```sh
+pnpm run db:migrate:local
+```
+
+4. Ortam degiskenlerini ayarlayin:
+
+```sh
+cp .env.example .env.local
+```
+
+5. `.env.local` dosyasina `DATAFORSEO_API_KEY` degerini ekleyin.
+
+6. Gelistirme sunucusunu baslatin:
+
+```sh
+pnpm run dev
+```
+
+### DataForSEO API Anahtari Nasil Alinir?
+
+1. [DataForSEO API Access](https://app.dataforseo.com/api-access) sayfasina gidin.
+2. E-posta ile API kimlik bilgilerinizi isteyin.
+3. Kullanici adiniz ve API sifrenizi base64 formatinda kodlayin:
+
+```sh
+printf '%s' 'KULLANICI_ADINIZ:SIFRENIZ' | base64
+```
+
+4. Bu degeri ortam dosyanizda `DATAFORSEO_API_KEY` olarak kaydedin.
+
+### Maliyet Bilgisi
+
+- OpenSEO uygulamasi tamamen **ucretsizdir**.
+- DataForSEO API kullanim bazli ucretlendirilir.
+- Yeni hesaplara **1$ ucretsiz kredi** taninir.
+- Minimum yukleme tutari **50$**'dir.
+
+---
+
+<div align="center">
+
+**OpenSEO by ATLAS** | Maintained by [ATLASxDevx](https://github.com/ATLASxDevx) | [atlasmedya.net](https://atlasmedya.net)
+
+Built on top of [every-app/open-seo](https://github.com/every-app/open-seo)
+
+</div>
